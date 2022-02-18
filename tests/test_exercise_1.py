@@ -47,8 +47,17 @@ def test_make_tuple(arg1, arg2, arg3, expected) -> None:
         {"name": "Khalid", "age": 30, "car": "Nissan"},
     ],
 )
-def test_make_dictionary(arg) -> None:
+def test_make_dictionary1(arg) -> None:
     assert make_dictionary(**arg) == arg
+
+
+def test_make_dictionary_no_order():
+    assert make_dictionary(car="Toyota", age=25, name="Majed") == make_dictionary(
+        name="Majed", age=25, car="Toyota"
+    )
+    assert make_dictionary(car="Toyota", age=25, name="Majed") != make_dictionary(
+        "Toyota", 25, "Majed"
+    )
 
 
 @pytest.mark.parametrize(
