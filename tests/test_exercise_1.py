@@ -1,5 +1,8 @@
 import pytest
 from ihat_exercises.exercise_1 import (
+    check_both_even,
+    check_negative,
+    do_basic_math,
     find_number_in_list,
     find_value_of_key,
     make_dictionary,
@@ -13,6 +16,45 @@ from ihat_exercises.exercise_1 import (
 def sample_dict():
     sample_dict = {1: "one", "one": 1, "ls": [5, 7, 9]}
     return sample_dict
+
+
+@pytest.mark.parametrize(
+    "num1, num2, expected",
+    [
+        (3, 1, 2),
+        (1, 3, 2),
+        (-2, -2, 0),
+        (1, 5, 4),
+    ],
+)
+def test_do_basic_math(num1, num2, expected):
+    assert do_basic_math(num1, num2) == expected
+
+
+@pytest.mark.parametrize(
+    "num1, num2, expected",
+    [
+        (2, 2, True),
+        (4, 1, False),
+        (-5, 4, False),
+        (-6, -2, True),
+    ],
+)
+def test_check_both_even(num1, num2, expected):
+    assert check_both_even(num1, num2) == expected
+
+
+@pytest.mark.parametrize(
+    "num, expected",
+    [
+        (1, False),
+        (0, False),
+        (-4, True),
+        (3, False),
+    ],
+)
+def test_check_negative(num, expected):
+    assert check_negative(num) == expected
 
 
 @pytest.mark.parametrize(

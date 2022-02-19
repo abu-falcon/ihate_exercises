@@ -3,6 +3,23 @@ from typing import Any, TypeVar
 T = TypeVar("T")
 
 
+def do_basic_math(num1: int, num2: int) -> int:
+    "subtract num2 from num1 and return it as absolute"
+    return abs(num1 - num2)
+
+
+def check_both_even(num1: int, num2: int) -> bool:
+    if (num1 % 2 == 0) and (num2 % 2 == 0):
+        return True
+    return False
+
+
+def check_negative(num: int) -> bool:
+    if num < 0:
+        return True
+    return False
+
+
 def repeat_word(word: str) -> str:
     "space between them. If empty, the answer should be empty"
     if not word:
