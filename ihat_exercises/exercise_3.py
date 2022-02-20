@@ -1,4 +1,6 @@
-from typing import Any
+from typing import Any, TypeVar
+
+T = TypeVar("T")
 
 
 def get_last_item(ls: list[Any]) -> Any:
@@ -67,3 +69,12 @@ def add_even_number(num: int, ls: list[int]) -> list[int]:
         return new_list
     new_list.append(num)
     return new_list
+
+
+def swap_last_with_first(ls: list[T]) -> list[T]:
+    "[1, 2, 3] -> [3, 2, 1]. If ls has less than 2 elements, return ls as it is"
+    match ls:
+        case [first, *middle, last]:
+            return [last, *middle, first]
+        case _:
+            return ls

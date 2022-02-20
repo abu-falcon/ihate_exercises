@@ -7,6 +7,7 @@ from ihat_exercises.exercise_1 import (
     find_value_of_key,
     make_dictionary,
     make_list,
+    make_single_element_tuple,
     make_tuple,
     repeat_word,
 )
@@ -80,6 +81,19 @@ def test_make_list(arg1, arg2, arg3, expected) -> None:
 def test_make_tuple(arg1, arg2, arg3, expected) -> None:
     t = make_tuple(arg1, arg2, arg3)
     assert t == expected
+
+
+@pytest.mark.parametrize(
+    "element, expected",
+    [
+        ("hii", ("hii",)),
+        (1, (1,)),
+        (3, (3,)),
+        ([1, 2], ([1, 2],)),
+    ],
+)
+def test_make_single_element_tuple(element, expected):
+    assert make_single_element_tuple(element) == expected
 
 
 @pytest.mark.parametrize(

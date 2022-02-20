@@ -5,6 +5,7 @@ from ihat_exercises.exercise_3 import (
     combine_last_letters,
     extract_last_two_items,
     get_last_item,
+    swap_last_with_first,
 )
 
 
@@ -59,3 +60,16 @@ def test_combine_last_letters(text1, text2, expected):
 )
 def test_add_number(num, ls, expected):
     assert add_even_number(num, ls) == expected
+
+
+@pytest.mark.parametrize(
+    "ls, expected",
+    [
+        ([1], [1]),
+        ([2, 2, 2], [2, 2, 2]),
+        ([1, 2, 3, 4, 5], [5, 2, 3, 4, 1]),
+        ([], []),
+    ],
+)
+def test_swap_last_with_first(ls, expected):
+    assert swap_last_with_first(ls) == expected

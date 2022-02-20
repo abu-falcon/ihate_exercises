@@ -13,7 +13,7 @@ def multiply_numbers(numbers: Iterable[int]) -> int:
 def calculate_upper_lower(sentence: str) -> tuple[int, int]:
     """
     calculate the number of upper case letters and lower case letters
-    use :method: .isupper() and  :method: islower()
+    use :method: str.isupper and  :method str.islower:
     """
     upper = 0
     lower = 0

@@ -35,6 +35,10 @@ def make_tuple(arg1: int, arg2: int, arg3: int) -> tuple[int, int, int]:
     return (arg1, arg2, arg3)
 
 
+def make_single_element_tuple(element: T) -> tuple[T]:
+    return (element,)
+
+
 def make_dictionary(name: str, age: int, car: str) -> dict[str, str | int]:
     return {"name": name, "age": age, "car": car}
 
